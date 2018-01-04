@@ -1,0 +1,75 @@
+<!-- 张喜硕 管理员界面模板文件 请继承管理员顶部导航栏 -->
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{block name="title"}标题{/block}</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #container{
+            /*保证footer是相对于container位置绝对定位*/
+            position:relative;  
+            width:100%;
+            min-height:100%; 
+            /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/  
+            padding-bottom: 100px;  
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            height: 80px;
+            background: ;
+        }
+        .main{
+            width: 100%;
+            height: 220px;
+            background: ;
+        }
+        footer{
+            width: 100%;
+            height:80px;   /* footer的高度一定要是固定值*/ 
+            position:absolute;
+            bottom:0px;
+            left:0px;
+            background: #eee;
+        }
+    </style>
+    
+</head>
+
+<body id="container">
+
+    <header class="row" style="border-bottom: 2px solid #b40605; margin-bottom: 10px;">
+        <h1 class="col-md-offset-2" style="color: #b40605; font-weight: 150; font-size: 30px; ">河北工业大学本科招生网上报名平台</h1>
+        <br>
+    </header>   
+    <section  class="main">
+    {block name="content"} {/block}
+    {block name="page"} {/block}
+    </section>
+    <footer> 
+        <div class="row">
+            <div class="col-md-offset-4" style="font-size: 12px;
+            color: #666;">
+                河北工业大学招生办公室&nbsp;&nbsp;版权所有&nbsp;&nbsp;&nbsp;&nbsp;&copy;&nbsp;2018　|　京ICP备05065075号-7<br>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
