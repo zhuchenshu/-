@@ -1,0 +1,72 @@
+{extend name="index"/}
+{block name="title"}
+系统管理员
+{/block}
+{block name="content"}
+<style>
+        .cities{
+            background-color: #D0D0D0;
+            color: #b40605;
+            font-weight: 150;
+            font-size: 30px;
+            width:100%;
+            height: 50px;
+        }
+    </style>
+        <div class="cities" style="margin-top:0;  color: #b40605; width: 100%">
+             <h5 class="col-md-offset-1" style="display: inline; margin: 0 0 0 240px;  font-weight: 150; font-size: 20px;">系统管理员，你好!</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 60px;  font-weight: 150; font-size: 20px;">你的账号是{$admin['account']}</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 162px;  font-weight: 150; font-size: 20px;"><a href="{:url('personcenter',['admin_id' => $admin['admin_id']])}"  style="text-decoration:none;color: black;">修改密码</a></h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 100px;  font-weight: 150; font-size: 20px;"><a href="{:url('index/logout')}"  style="text-decoration:none;color: black;">退出登录</a></h5>
+        </div>
+
+        <div class="row" style="margin-top: 50px;margin-bottom:200px; font-size: px">
+            <div class="col-md-2 col-md-offset-2" style="width: 10%;">
+
+                <table class="" style="width: 100%">
+                    
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff; border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px"><a class="ex1" href="{:url('baokaoMassage')}" style="padding:5px 7px;">查看报名信息</a></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px"><a class="ex1" href="{:url('stuScore')}" style="padding:5px 7px;">查看考生成绩</a></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #ccccff"><a class="ex1" href="{:url('testNotice')}" style="padding:5px 7px;">报考须知</a></td>
+                    </tr>
+                </table>
+            </div>  
+            <div class="col-md-7 col-md-offset-0">
+                      <label style="background-color: #ccccff;
+                            color: #3399ff;
+                            font-size: 18px;
+                            width: 100%;
+                            height: 26px;">招生管理员</label>
+                      <a href="{:url('officeradd')}" class="btn btn-default" style="height:30px; float:right;"><i class="glyphicon glyphicon-plus"></i>&nbsp;增加</a>
+                      <table class="table table-bordered" >
+                        <tr>
+                          <td>id</td>
+                          <td>姓名</td>
+                          <td>密码</td>
+                          <td>账号</td>
+                          <td>操作</td>
+                        </tr>
+                        {volist name="officers" id="_officers" key="key"}
+                        <tr>
+                          <td>{$_officers['officer_id']}</td>
+                          <td>{$_officers['name']}</td>
+                          <td>{$_officers['password']}</td>
+                          <td>{$_officers['account']}</td>
+                          <td><a href="{:url('officerEdit',['officer_id' => $_officers['officer_id']])}" class="btn btn-default" style="height:30px; width: 45%;">编辑</a>
+                                            &nbsp;
+                                    <a href="{:url('officerdelete',['officer_id' => $_officers['officer_id']])}" class="btn btn-default" style="height:30px; float:right; width: 45%;">删除</a>
+                                </td>
+                        </tr>
+                        {/volist}
+                      </table>
+                      {$officers->render()}
+            </div>       
+
+        </div>
+
+{/block}

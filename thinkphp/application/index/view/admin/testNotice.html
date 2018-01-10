@@ -1,0 +1,79 @@
+{extend name="index"/}
+{block name="title"}
+系统管理员
+{/block}
+{block name="content"}
+  <style>
+        .cities{
+            background-color: #D0D0D0;
+            color: #b40605;
+            font-weight: 150;
+            font-size: 30px;
+            width:100%;
+            height: 50px;
+        }
+    </style>
+        <div class="cities" style="margin-top:0;  color: #b40605; width: 100%">
+             <h5 class="col-md-offset-1" style="display: inline; margin: 0 0 0 240px;  font-weight: 150; font-size: 20px;">系统管理员，你好!</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 60px;  font-weight: 150; font-size: 20px;">你的账号是xxxxxx</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 162px;  font-weight: 150; font-size: 20px;"><a href="{:url('personcenter')}"  style="text-decoration:none;color: black;">修改密码</a></h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 100px;  font-weight: 150; font-size: 20px;"><a href="{:url('index/logout')}"  style="text-decoration:none;color: black;">退出登录</a></h5>
+        </div>
+        <div class="row" style="margin-top: 50px;margin-bottom:200px; font-size: px">
+            <div class="col-md-2 col-md-offset-2" style="width: 10%;">
+
+                <table class="" style="width: 100%">
+                    <style>
+                        .bg:hover
+                            {
+                                background-color:#D0D0D0;
+                            }
+                        .ex1{
+                                padding:  10px;
+                           }
+                    </style>
+
+                    <tr>
+                        <td class="bg" style="border: 1px solid #ccccff;text-align: center;height: 50px;"><strong><a class="ex1" href="{:url('index')}" style="color: #b40605;">首页</a></strong></td>
+                    </tr>
+                   
+
+                </table>
+            </div>  
+            <div class="col-md-5" style="margin-left: 40px;">
+            <div class="row">
+             <table class="col-md-10" style=" border: 1px solid #ccccff;">
+                 <tr>
+                    <td align="left" >
+                        <span ><font color="#000000" size=>填写说明：</font></span>
+                        <br>（1）请认真填写以下信息，填完完毕后点击最下方的“保存”；
+                        <br>（2）报考信息请尽量填写详细，避免考生产生错误理解；
+                        <br>（3）该项目为必填项；</td>
+                 </tr>
+             </table>
+            </div>
+            <br>
+            <div class="row">
+                <div class="">
+                <style>
+                .abc{
+                        color: #000000;
+                        font-size: 25px;
+                        width: 30%;
+                        height: 26px;
+                     }
+
+                </style>
+                <div class="abc">报考须知填写</div>
+                     <textarea class="form-control    " rows="0" style="height: 150px;margin-top: 25px;background-color: #ccccff"></textarea>
+                   <table class="" style="height: 60px;width: 100%">
+                     <tr>
+                         <td style=" width: 20%;text-align: center;"><a href="xxxx.html" class="btn btn-default" style="height:30px; text-align: center; ">保存信息</a></td>
+                     </tr>
+                   </table>
+            </div>
+            </div>
+            </div>
+        </div>
+
+{/block}

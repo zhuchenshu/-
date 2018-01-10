@@ -1,0 +1,43 @@
+{extend name="index"/}
+{block name="title"}
+招生管理员
+{/block}
+{block name="content"}
+<!-- // 新建学科包括新建科目
+// 新建报名须知
+// 个人中心，修改密码账号 -->
+<div class="row" style="margin:50px 0 150px 0;">
+<div class="col-md-4 col-md-offset-4">
+		<h3>密码修改</h3>
+		<form  action="{:url('updateperson',['officer_id' => $officer['officer_id']])}" method="post">
+		  <div class="form-group">
+		    <input type="text" class="form-control"   placeholder="旧密码" name = "oldPassword" value="{$officer['password']}">
+		  </div>
+          <div class="form-group" hidden="hidden">
+            <input type="text" class="form-control" name = "stu_id" value=""}">
+          </div>
+		  <div class="form-group">
+		    <input type="password" class="form-control" id="old" placeholder="新密码" name = "newPassword" value="">
+		  </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="newps" placeholder="请确认新密码" name="ensurePassword" onchange="ensure()" value="">
+          </div>
+		  <button class="btn btn-default" role="button" >完成</button>
+		</form>
+</div>
+</div>
+<script type="text/javascript">
+    function ensure()
+    {
+    var news = document.getElementById("newps").value;
+    console.log(news);
+    var old = document.getElementById("old").value;
+    console.log(old);
+    if (news != old) {
+        alert("两次密码输入不同");
+        document.getElementById("newps").value = "";
+        document.getElementById("old").value = "";
+    }
+    }
+</script>
+{/block}

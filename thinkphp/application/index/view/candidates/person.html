@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>xiugaimima</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #container{
+            /*保证footer是相对于container位置绝对定位*/
+            position:relative;  
+            width:100%;
+            min-height:100%; 
+            /*设置padding-bottom值大于等于footer的height值，以保证main的内容能够全部显示出来而不被footer遮盖；*/  
+            padding-bottom: 100px;  
+            box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            height: 80px;
+            background: ;
+        }
+        .main{
+            width: 100%;
+            height: 220px;
+            background: ;
+        }
+        footer{
+            width: 100%;
+            height:80px;   /* footer的高度一定要是固定值*/ 
+            position:absolute;
+            bottom:0px;
+            left:0px;
+            background: #eee;
+        }
+    </style>
+    
+</head>
+
+<body id="container">
+
+    <header class="row" style="border-bottom: 2px solid #b40605; margin-bottom: 10px;">
+        <h1 class="col-md-offset-2" style="color: #b40605; font-weight: 150; font-size: 30px; ">河北工业大学本科招生网上报名平台</h1>
+        <br>
+    </header>   
+    <section  class="main">
+    <div class="row" style="margin-top: 50px;">
+	<div class="col-md-4 col-md-offset-2">
+	<h3>说明</h3>
+	<table width="360" class="">
+        <tr> 
+          <td align="left" valign="top" class=""><span class="style1">1、</span></td>
+          <td align="left" valign="top" class="">请在右侧相应文本框填写信息。</td>
+        </tr>
+        <tr> 
+          <td align="left" valign="top" class=""><span class="style1">2、</span></td>
+          <td align="left" valign="top" class="">每行均必须填写。<br>
+        </tr>
+        <tr> 
+          <td align="left" valign="top" class=""><span class="style1">3、</span></td>
+          <td align="left" valign="top" class="">修改完成后请点击<strong>完成</strong>按钮，确定信息修改完成。</font>
+		  </td>
+        </tr>
+        <tr> 
+          <td align="left" valign="top" class=""><span class="style1">4、</span></td>
+          <td align="left" valign="top" class="">密码长度必须超过6位且可由大小写字母，数字，普通字符构成。</font>
+          </td>
+        </tr>
+        <tr> 
+          <td align="left" valign="top" class=""><span class="style1">5、</span></td>
+          <td align="left" valign="top" class="">若有任何疑问，请<a href="mailto:bdzsb@pku.edu.cn" target="_blank"><font color="blue">通过邮件（bdzsb@pku.edu.cn）</font></a>联系我们。<br>（邮件中请提供必要的个人信息）</td>
+        </tr>
+        <br>
+      </table>
+	</div>
+	<div class="col-md-4 col-md-offset-1">
+		<h3>密码修改</h3>
+		<form  action="{:url('revisePassword',['stu_id' , $student->getData('stu_id')])}" method="post">
+		  <div class="form-group">
+		    <input type="text" class="form-control"   placeholder="旧密码" name = "oldPassword" value="{$student->getData('password')}">
+		  </div>
+          <div class="form-group" hidden="hidden">
+            <input type="text" class="form-control" name = "stu_id" value="{$student->getData('stu_id')}">
+          </div>
+		  <div class="form-group">
+		    <input type="password" class="form-control" id="old" placeholder="新密码" name = "newPassword" value="">
+		  </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="newps" placeholder="请确认新密码" name="ensurePassword" onchange="ensure()" value="">
+          </div>
+		  <button class="btn btn-default" role="button" >完成</button>
+		</form>
+	</div>
+</div>
+    </section>
+    <footer> 
+        <div class="row">
+            <div class="col-md-offset-4" style="font-size: 12px;
+            color: #666;">
+                河北工业大学招生办公室&nbsp;&nbsp;版权所有&nbsp;&nbsp;&nbsp;&nbsp;&copy;&nbsp;2018　|　京ICP备05065075号-7<br>
+            </div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript">
+    function ensure()
+    {
+    var news = document.getElementById("newps").value;
+    console.log(news);
+    var old = document.getElementById("old").value;
+    console.log(old);
+    if (news != old) {
+        alert("两次密码输入不同");
+        document.getElementById("newps").value = "";
+        document.getElementById("old").value = "";
+    }
+    }
+</script>
+</html>

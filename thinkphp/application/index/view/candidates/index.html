@@ -1,0 +1,102 @@
+{extend name="index"/}
+{block name="title"}
+用户
+{/block}
+{block name="content"}
+<style>
+        .cities{
+            background-color: #ccccff;
+            color: #b40605;
+            font-weight: 150;
+            font-size: 30px;
+            width:100%;
+            height: 50px;
+        }
+    </style>
+        <div class="cities" style="margin-top:0;  color: #b40605; width: 100%">
+             <h5 class="col-md-offset-1" style="display: inline; margin: 0 0 0 240px;  font-weight: 150; font-size: 20px;">{$student->getData('name')}同学，你好!</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 60px;  font-weight: 150; font-size: 20px;">你的身份证号码为：{$student->getData('idcard')}</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 162px;  font-weight: 150; font-size: 20px;"><a href="{:url('person',['stu_id' => $student->getData('stu_id')])}"  style="text-decoration:none;color: black;">修改密码</a></h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 100px;  font-weight: 150; font-size: 20px;"><a href="{:url('index/logout')}"  style="text-decoration:none;color: black;">退出登录</a></h5>
+        </div> 
+        <div class="row" style="margin-top: 50px">
+            <div class="col-md-1 col-md-offset-2" style="margin: 0 0 0 240px">
+                <table class="" style="width: 100%">
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff;text-align: center;height: 50px"><strong><a href="#" style="color: #b40605;">开始页面</a></strong></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff;text-align: center;height: 50px"><strong><a href="{:url('permasage', ['stu_id' => $student->getData('stu_id')])}" style="color: #b40605;">填写个人信息</a></strong></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff;text-align: center;height: 50px"><strong><a href="{:url('baominginfo', ['stu_id' => $student->getData('stu_id')])}" style="color: #b40605;">我的报名</a></strong></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-7 ">
+                 <style>
+                     .abc{
+                        background-color: #ccccff;
+                        color: #3399ff;
+                        font-size: 18px;
+                        width: 100%;
+                        height: 26px;
+                     }
+                 </style>
+                 <div class="abc">报名选项</div>
+                 <table class="" style=" width: 100%" >
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff;height: 50px;width: 100%;text-align: center;" >注：请先完成个人信息的填写，再开始选报你想申请的项目。</td>
+                    </tr>
+                 </table>
+                 <table class="" style="width: 100%">
+                     <tr style="height: 40px;"> 
+                        <td class="" style="border: 1px solid #ccccff;width: 20%;text-align: center;"><strong>报名类型</strong></td>
+                         <td style="border: 1px solid #ccccff;width: 40%;text-align: center;"><strong>说明</strong></td>
+                         <td style="border: 1px solid #ccccff;width: 10%;text-align: center;"><strong>开始时间</strong></td>
+                         <td style="border: 1px solid #ccccff;width: 10%;text-align: center;"><strong>结束时间</strong></td> 
+                         <td style="border: 1px solid #ccccff;width: 20%;text-align: center;"><strong>点击报名</strong></td> 
+                    </tr>
+                 </table>
+                 <table class="" style="width: 100%">
+                    {volist name="test_style" id="_test" key="key"}
+                     <tr style="height: 50px;"> 
+                        <td class="" style="border: 1px solid #ccccff;width: 20%;text-align: center;">{$_test['name']}</td>
+                         <td style="border: 1px solid #ccccff;width: 40%;text-align: center;">{$_test['introduce']}</td>
+                         <td style="border: 1px solid #ccccff;width: 10%;text-align: center;">{$_test['start_date']}</td>
+                         <td style="border: 1px solid #ccccff;width: 10%;text-align: center;">{$_test['end_date']}</td> 
+                         <td style="border: 1px solid #ccccff;width: 20%;text-align: center;"><a class="btn btn-default" href="{:url('baoming', ['stu_id' => $student->getData('stu_id') , 'test_style_id' => $_test['test_style_id']])}" role="button" >点击报名</a></td> 
+                    </tr>
+                    {/volist}
+                 </table>
+
+                 <div class="abc" style="margin-top: 25px">您的个人信息填写情况</div>
+                 <table class="" style="width: 100%;margin-top:0;">
+                     <tr style="height: 30px">
+                        <td class="" style="border: 1px solid #ccccff;width: 50%;text-align: center;"><strong>必填内容</strong></td>     
+                        <td style="border: 1px solid #ccccff;width: 50%;text-align: center;"><strong>选填内容</strong></td>                                    
+                     </tr>               
+                 </table>
+
+                 <table class="" style="width: 100%;">
+                    <tr style="height: 40px">
+                        <td class="" style="border: 1px solid #ccccff;width: 25%;text-align: center;"><a href="{:url('permasage',['stu_id' => $student->getData('stu_id')])}"  style="color: red;">完善个人信息</a>
+                        </td>
+                        <td style="border: 1px solid #ccccff;width: 25%;text-align: center;"><a href="{:url('winer',['stu_id' => $student->getData('stu_id')])}"  style="color: red;">获奖情况</a>
+                        </td>
+                        <td style="border: 1px solid #ccccff;width: 12.5%;text-align: center;"><a href="{:url('study')}">学习经历</a></td>
+                        <td style="border: 1px solid #ccccff;width: 12.5%;text-align: center;"><a href="{:url('family')}">家庭情况</a></td>
+                        <td style="border: 1px solid #ccccff;width: 12.5%;text-align: center;"><a href="{:url('social')}">社会活动</a></td>
+                        <td style="border: 1px solid #ccccff;width: 12.5%;text-align: center;"><a href="{:url('techang')}">个人特长</a></td>
+                    </tr>
+                 </table>
+
+                 <div class="abc" style="margin-top: 25px">点击查看您的报名情况</div>
+                 <table class="" style="width: 100%">
+                     <tr style="height: 60px">
+                         <td style="border: 1px solid #ccccff;width: 20%;text-align: center;"><a class="btn btn-default" href="{:url('baominginfo',['stu_id' => $student->getData('stu_id')])}" role="button" s>报名情况</a></td> 
+                     </tr>
+                 </table>
+            </div>
+        </div>
+{/block}

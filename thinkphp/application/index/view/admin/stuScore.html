@@ -1,0 +1,58 @@
+{extend name="index"/}
+{block name="title"}
+系统管理员
+{/block}
+{block name="content"}
+<style>
+        .cities{
+            background-color: #D0D0D0;
+            color: #b40605;
+            font-weight: 150;
+            font-size: 30px;
+            width:100%;
+            height: 50px;
+        }
+    </style>
+        <div class="cities" style="margin-top:0;  color: #b40605; width: 100%">
+             <h5 class="col-md-offset-1" style="display: inline; margin: 0 0 0 240px;  font-weight: 150; font-size: 20px;">系统管理员，你好!</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 60px;  font-weight: 150; font-size: 20px;">你的账号是xxxxxx</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 162px;  font-weight: 150; font-size: 20px;"><a href="{:url('personcenter')}"  style="text-decoration:none;color: black;">修改密码</a></h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 100px;  font-weight: 150; font-size: 20px;"><a href="{:url('index/logout')}"  style="text-decoration:none;color: black;">退出登录</a></h5>
+        </div>
+
+        <div class="row" style="margin-top: 50px;margin-bottom:200px; font-size: 12px">
+            <div class="col-md-2 col-md-offset-2" style="width: 10%;">
+
+                <table class="" style="width: 100%">
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff;text-align: center;height: 50px"><a class="ex1" href="{:url('index')}" style="padding: 5px 10px">首页</a></td>
+                    </tr>
+                </table>
+            </div> 
+            <div class="col-md-7 col-md-offset-0">
+                      <label style="background-color: #ccccff;
+                            color: #3399ff;
+                            font-size: 18px;
+                            width: 100%;
+                            height: 26px;">考生成绩查询</label>
+                      <table class="table table-bordered" >
+                        <tr>
+                          <td>id</td>
+                          <td>姓名</td>
+                          <td>科目</td>
+                          <td>成绩</td>
+                          <td>操作</td>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td><a href="bianjie.html" class="btn btn-default" style="height:30px; float:right;">修改</a>
+                                </td>
+                        </tr>
+                      </table>
+            </div>       
+
+        </div>
+{/block}

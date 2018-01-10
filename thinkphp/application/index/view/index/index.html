@@ -3,7 +3,7 @@
 登录
 {/block}
 {block name="content"}
-<div class="row" style="margin-top: 50px;">
+<div class="row" style="margin-top: 50px; margin-bottom: 140px;" >
 	<div class="col-md-4 col-md-offset-2">
 	<h3>系统使用说明</h3>
 	<table width="360" class="">
@@ -28,19 +28,27 @@
         <tr> 
           <td colspan=2 align="left" valign="top" class="">
           	<br>
-          	<input type="button" value="注册新用户" class="btn btn-default" onclick="window.top.location.href = 'register.php';"></td>
+          	<a type="button" href="{:url('registered')}" value="注册新用户" class="btn btn-default">注册新用户</a>
         </tr>
       </table>
 	</div>
 	<div class="col-md-4 col-md-offset-1">
 		<h3>用户登陆</h3>
-		<form>
+		<form action="{:url('login')}" method="post">
 		  <div class="form-group">
-		    <input type="text" class="form-control"  placeholder="身份证号" >
+		    <input type="text" name="idcard" class="form-control"  placeholder="身份证号" required >
 		  </div>
 		  <div class="form-group">
-		    <input type="password" class="form-control" placeholder="密码" >
+		    <input type="password" name="password" class="form-control" placeholder="密码" required>
 		  </div>
+      <div class="form-group">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inlineCheckbox1" name = "officer" value="officer" > 招生管理员登录
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="inlineCheckbox1" name = "admin" value="admin"> 系统管理员登录
+        </label>
+      </div>
 		  <button type="submit" class="btn btn-info">登陆</button>
 		</form>
 	</div>

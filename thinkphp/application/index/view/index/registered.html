@@ -1,0 +1,60 @@
+{extend name="index"/}
+{block name="title"}
+注册
+{/block}
+{block name="content"}
+<div class="row" style="">
+	<div class="col-md-offset-3 col-md-5" style="border: 1px solid  #eee; font-size: 12px;">
+	<table style="padding: 4px 4px;">
+	  <tr>
+		<td align="left">
+			<span class="text14b" style="color: blue">填写说明：</span>
+			<br>（1）请认真填写下表信息，这些基本信息注册后不可修改，每个身份证号码在本系统只可注册一次。</font>；
+			<br>（2）“<span class="bitian">*</span>”为必填项；
+	  </tr>
+	</table>
+	</div>
+
+	<form class="col-md-5 col-md-offset-3" style="margin-top: 10px;"  action="{:url('judgeregist')}" method="post">
+		<table class="table table-bordered">
+			<tr>
+				<td>新用户注册</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>* 姓名</td>
+				<td><input type="text" name="name" class="form-control" placeholder="请务必输入您的真实中文姓名" required></td>
+			</tr>
+			<tr>
+				<td>* 身份证号码</td>
+				<td><input type="text" name="idcard" class="form-control" placeholder="请填写您的身份证编号，末位为X的请大写。" required></td>
+			</tr>
+			<tr>
+				<td>* 生源省市</td>&nbsp;
+				<td><select name="province" class="form-control" style="width: 80px;" >
+			<option value='北京'>北京</option><option value='天津'>天津</option><option value='上海'>上海</option><option value='重庆'>重庆</option><option value='广东'>广东</option><option value='河北'>河北</option><option value='山西'>山西</option><option value='内蒙古'>内蒙古</option><option value='辽宁'>辽宁</option><option value='吉林'>吉林</option><option value='黑龙江'>黑龙江</option><option value='江苏'>江苏</option><option value='浙江'>浙江</option><option value='安徽'>安徽</option><option value='福建'>福建</option><option value='江西'>江西</option><option value='山东'>山东</option><option value='河南'>河南</option><option value='湖北'>湖北</option><option value='湖南'>湖南</option><option value='广西'>广西</option><option value='海南'>海南</option><option value='四川'>四川</option><option value='贵州'>贵州</option><option value='云南'>云南</option><option value='西藏'>西藏</option><option value='陕西'>陕西</option><option value='甘肃'>甘肃</option><option value='青海'>青海</option><option value='宁夏'>宁夏</option><option value='新疆'>新疆</option>		</select></td>
+			</tr>
+			<tr>
+				<td>* 学科	</td>
+				<td>
+			<label class="checkbox-inline">
+			<input type="radio" name="xueke" value="理科"  >理科　</label>
+			<label class="checkbox-inline">
+        	<input type="radio" name="xueke" value="文科" >文科　</td></label>
+			</tr>
+			<tr>
+				<td>* 密码	</td>
+				<td><input type="password" name="password" class="form-control" required></td>
+			</tr>
+			<tr>
+				<td>* 再次输入密码</td>
+				<td><input type="password" name="quedingpassword" class="form-control" required></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><button class="btn btn-default" type="submit">提交注册信息</button></td>
+			</tr>
+		</table>
+	</form>
+</div>
+{/block}
