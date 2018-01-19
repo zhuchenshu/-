@@ -3,6 +3,7 @@
 招生管理员
 {/block}
 {block name="content"}
+<div style="margin-bottom: 240px;">
 <style>
         .cities{
             background-color: #ccccff;
@@ -49,16 +50,12 @@
                  <table class="" style="width: 100%">
                      <tr style="height: 50px;">
                          <td style=" width: 33.333333%;text-align: center;border: 1px solid #ccccff;"><a href="{:url('stuPassword',['officer_id' => $officer['officer_id']])}" style="text-decoration: none; color: #b40605">考生密码管理</a></td>
-                         <td style="width: 33.333333%;text-align: center;border: 1px solid #ccccff;"><a href="#" style="color: #b40605">查看考生信息</a></td>
-                         <td style="width: 33.333333%;text-align: center;border: 1px solid #ccccff;"><a href="#" style="color: #b40605">录入考生成绩</a></td>
+                         <td style="width: 33.333333%;text-align: center;border: 1px solid #ccccff;"><a href="{:url('viewStudent',['officer_id' => $officer['officer_id']])}" style="color: #b40605">查看考生信息</a></td>
+                         <td style="width: 33.333333%;text-align: center;border: 1px solid #ccccff;"><a href="{:url('showScore',['officer_id' => $officer['officer_id']])}" style="color: #b40605">录入考生成绩</a></td>
                      </tr>
                  </table>
-                 <div class="abc" style="margin-top: 25px">报考须知管理</div>
-                 <table class="" style="width: 100%">
-                    <tr style="height: 50px">
-                        <td style="text-align: center;border: 1px solid #ccccff;width: 100%"><a href="zjh.html" ><button  type="submit" class="btn btn-danger">编辑报考须知</button></a></td>
-                    </tr>
-                 </table>
+                 
             </div>
         </div>
+</div>
 {/block}

@@ -1,0 +1,90 @@
+{extend name="index"/}
+{block name="title"}
+招生管理员
+{/block}
+{block name="content"}
+<style>
+        .cities{
+            background-color: #ccccff;
+            color: #b40605;
+            font-weight: 150;
+            font-size: 30px;
+            width:100%;
+            height: 50px;
+        }
+    </style>
+         <div class="cities" style="margin-top:0;  color: #b40605; width: 100%">
+             <h5 class="col-md-offset-1" style="display: inline; margin: 0 0 0 240px;  font-weight: 150; font-size: 20px;">招生负责人:{$officer['name']}，您好！</h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 556px;  font-weight: 150; font-size: 20px;"><a href="{:url('personcenter',['officer_id' => $officer['officer_id']])}" style="text-decoration:none;color: black;">修改密码</a></h5>
+             <h5 class="" style="display: inline; margin: 0 0 0 100px;  font-weight: 150; font-size: 20px;"><a href="{:url('index/logout')}" style="text-decoration:none;color: black;">退出登录</a></h5>
+        </div> 
+        <div class="row" style="margin-top: 50px">
+            <div class="col-md-1 col-md-offset-2" style="margin: 0 0 0 240px">
+                <table class="" style="width: 100%">
+                    <tr>
+                        <td class="" style="border: 1px solid #ccccff;text-align: center;height: 50px"><a class="ex1" href="{:url('index',['officer_id' => $officer['officer_id']])}" style="padding: 5px 2px">开始页面</a></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px"><a class="ex1" href="kaosheng-xinxi.html" style="padding:5px 2px;">考生信息管理</a></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px"><a class="ex1" href="kaoshengmima.html" style="padding:5px 2px;">考生密码管理</a></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px"><a class="ex1" href="kaoshengxinxi.html" style="padding:5px 2px;">查看考生信息</a></td>
+                    </tr>
+                    <tr>
+                        <td class="" style="border-left-style: solid;border-left-width: 1px;border-left-color: #ccccff;border-right-style: solid;border-right-width: 1px;border-right-color: #ccccff;text-align: center;height: 50px;border-bottom-style: solid;border-bottom-width: 1px;border-bottom-color: #ccccff"><a class="ex1" href="changjiluru.html" style="padding:5px 2px;">录入考生成绩</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-7 ">
+                 <style>
+                     .abc{
+                        background-color: #ccccff;
+                        color: #3399ff;
+                        font-size: 18px;
+                        width: 100%;
+                        height: 26px;
+                     }
+                 </style>    
+                 <table class="" style="width: 100%;border: 1px solid #ccccff;">
+                     <tr>
+                         <td class="" style="text-align: left;color: #0033cc;font-size: 18px"><strong>&nbsp;&nbsp;填写说明：</strong></td>
+                     </tr>
+                     <tr>
+                         <td class="" style="text-align: left;color: black;font-size: 12px">&nbsp;&nbsp;&nbsp;(1)请核对考生姓名和考试类型后再填写考试地点信息；</td>
+                     </tr>
+                     <tr>
+                         <td class="" style="text-align: left;color: black;font-size: 12px">&nbsp;&nbsp;&nbsp;(2)填写完成后点击保存按钮保存相关信息。</td>
+                     </tr>
+                 </table>             
+                  <div class="abc" style="margin-top: 25px">考生考试地点信息</div>
+                  <form>
+                  <table class="" style=" width: 100%" >
+                    <tr style="height: 35px">
+                        <td class="" style="border: 1px solid #ccccff;width: 30%;text-align: right;color: black" >姓名&nbsp;&nbsp;</td>
+                        <td class="" style="border: 1px solid #ccccff;width: 70%;text-align: left;color: black" > &nbsp;&nbsp;XXX</td>
+                    </tr>
+                    <tr style="height: 35px">
+                        <td class="" style="border: 1px solid #ccccff;width: 30%;text-align: right;color: black" >身份证号码&nbsp;&nbsp;</td>
+                        <td class="" style="border: 1px solid #ccccff;width: 70%;text-align: left;color: black" > &nbsp;&nbsp;XXXXXXXXXXXXXXXXX</td>
+                    </tr>
+                    <tr style="height: 35px">
+                        <td class="" style="border: 1px solid #ccccff;width: 30%;text-align: right;color: black" >考生考试类型&nbsp;&nbsp;</td>
+                        <td class="" style="border: 1px solid #ccccff;width: 70%;text-align: left;color: black" > &nbsp;&nbsp;XXXXXXXXXXXXXXXXX</td>
+                    </tr>
+                    <tr style="height: 35px">
+                        <td class="" style="border: 1px solid #ccccff;width: 30%;text-align: right;color: black" >&nbsp;&nbsp;考生考试地点&nbsp;&nbsp;</td>
+                        <td class="" style="border: 1px solid #ccccff;width: 70%;text-align: left;color: black" ><input type="text" class="form-control" placeholder="" style="display: inline;height: 32px;width: 200px"></td>
+                    </tr>
+                 </table>
+               </form>
+                 <table class="" style="height: 60px;width: 100%">
+                    <tr>
+                        <td style="border: 1px solid #ccccff;width: 20%;text-align: center;"><a class="btn btn-danger" href="xinxi-3.html" role="button" >保存信息</a></td>
+                    </tr>
+                 </table>
+            </div>
+        </div>
+{/block}

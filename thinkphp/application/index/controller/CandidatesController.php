@@ -17,17 +17,21 @@ class CandidatesController extends Controller
         $test_style = new Test_style;
 
         $test_styles = $test_style->select();
-        //删除已删除的科目
+        //删除已选的科目
         $Student_test = new Student_test;
         $tests = $Student_test->where('stu_id', $stu_id)->select();
+        $a = array();
         for( $i = 0;$i < sizeof($test_styles); $i++) {
             for( $j = 0; $j < sizeof($tests); $j++) {
                 if($test_styles[$i]->test_style_id == $tests[$j]->test_id) {
-                    unset($test_styles[$i]);
+                    array_push($a, $i);
+                    continue;
                 }
             }
         }
-
+        for($p = 0; $p<sizeof($a);$p++) {
+            unset($test_styles[$a[$p]]);
+        }
         $this->assign('test_style', $test_styles);
         $this->assign('student', $student);
 
